@@ -1,0 +1,8 @@
+numpy
+torch
+torchvision            # optional, but often installed with torch
+scikit-learn
+nibabel
+opencv-python
+matplotlib
+PyYAML

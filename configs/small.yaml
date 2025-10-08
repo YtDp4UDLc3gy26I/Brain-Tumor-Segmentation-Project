@@ -1,0 +1,23 @@
+data_root: "./data/BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData"
+input_modalities: ["flair", "t1ce"]
+val_split: 0.15
+test_split: 0.15
+
+img_size: 128
+volume_slices: 24
+volume_start_at: 22
+cache_size: 3
+epochs: 3
+batch_size: 8
+num_workers: 4
+lr: 0.0002
+weight_decay: 0.0001
+alpha: 0.5
+beta: 0.5
+dropout: 0.35
+
+seed: 42
+device: "cpu"
+output_root: "Output"
+lr_patience: 2
+lr_min: 0.00001
