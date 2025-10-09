@@ -16,3 +16,6 @@ logs/
 # envs
 .env
 .venv
+
+# Ds_store
+.DS_Store
