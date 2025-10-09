@@ -13,15 +13,17 @@ from ..models.unet2d import UNet2D
 from .overlays import _to01, _overlay_on_base, CLASS_COLORS
 from src.utils.device import get_device
 
+device_str = "auto"
+device = get_device(device_str)
+
 def imageLoader(path: str) -> np.ndarray:
     return nib.load(path).get_fdata()
 
 @torch.no_grad()
-def load_model(weights_path: str, in_ch: int, n_classes: int, dropout: float, device_str: str = "auto"):
-    device = get_device(device_str)
+def load_model(weights_path: str, in_ch: int, n_classes: int, dropout: float, device=device):
     model = UNet2D(in_ch=in_ch, n_classes=n_classes, dropout=dropout).to(device)
 
-    state = torch.load(weights_path, map_location=device)
+    state = torch.load(weights_path, map_location=device, weights_only=True)
     if isinstance(state, dict) and "model_state_dict" in state:
         state = state["model_state_dict"]
     if any(k.startswith("module.") for k in state.keys()):
@@ -29,13 +31,13 @@ def load_model(weights_path: str, in_ch: int, n_classes: int, dropout: float, de
 
     model.load_state_dict(state, strict=False)
     model.eval()
-    return model, device
+    return model
 
 @torch.no_grad()
 def predict_volume_stack(
     case_dir: str, case_id: str, model,
     img_size: int = 128, volume_slices: int = 100, volume_start_at: int = 22,
-    device: str | torch.device = "cuda" if torch.cuda.is_available() else "cpu",
+    device=device,
 ):
     flair_path = os.path.join(case_dir, f"{case_id}_flair.nii.gz")
     if not os.path.exists(flair_path):
@@ -79,7 +81,7 @@ def predict_volume_stack(
 def showPredictsById(
     case: str, root_dir: str, model,
     img_size: int = 128, volume_slices: int = 100, volume_start_at: int = 22,
-    device: str | torch.device = "cuda" if torch.cuda.is_available() else "cpu",
+    device=device,
     start_slice: int = 60
 ):
     case_dir = os.path.join(root_dir, case)
@@ -125,4 +127,5 @@ def showPredictsById(
     axarr[4].imshow(ede_rgb); axarr[4].set_title("Edema"); axarr[4].axis("off")
     axarr[5].imshow(enh_rgb); axarr[5].set_title("Enhancing"); axarr[5].axis("off")
     plt.tight_layout()
+    plt.show()
     return fig
