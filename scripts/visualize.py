@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 import argparse
-import torch
 from src.viz.predict import load_model, showPredictsById
 
 def cli():
