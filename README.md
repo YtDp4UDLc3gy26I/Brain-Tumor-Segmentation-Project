@@ -117,3 +117,17 @@ The main dependencies for this project are listed in `requirements.txt`:
 - `opencv-python`
 - `matplotlib`
 - `PyYAML`
+
+## Data & Licensing
+
+This project uses the BraTS 2020 dataset. The dataset itself is **not** included in this repository.
+Please obtain it from the official sources and follow their usage guidelines and citation requirements:
+
+- Menze et al., IEEE TMI 2015. DOI: 10.1109/TMI.2014.2377694  
+- Bakas et al., Scientific Data 2017. DOI: 10.1038/sdata.2017.117  
+- Bakas et al., arXiv:1811.02629 (2018)  
+- Bakas et al., TCIA (TCGA-GBM) 2017. DOI: 10.7937/K9/TCIA.2017.KLXWJJ1Q  
+- Bakas et al., TCIA (TCGA-LGG) 2017. DOI: 10.7937/K9/TCIA.2017.GJQ7R0EF
+
+**Example figure** below is a visualization produced locally from the BraTS dataset (for demonstration only).
+No dataset files are redistributed here. Please cite the works above if you use the data.
