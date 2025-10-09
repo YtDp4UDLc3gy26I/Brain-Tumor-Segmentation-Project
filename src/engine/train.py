@@ -9,13 +9,13 @@ def _ce_and_dice_parts(logits, targets):
     dice = soft_dice_no_bg(logits, targets)
     return ce, dice
 
-def train_one_epoch(model, loader, optimizer, loss_fn, device):
+def train_one_epoch(model, loader, optimizer, loss_fn, device, non_blocking: bool = False):
     model.train()
     total_loss = ce_sum = dice_sum = 0.0
     meter = EpochConfusionMeter(num_classes=4, device=device)
 
     for X, y in loader:
-        X, y = X.to(device, non_blocking=True), y.to(device, non_blocking=True)
+        X, y = X.to(device, non_blocking=non_blocking), y.to(device, non_blocking=non_blocking)
         optimizer.zero_grad(set_to_none=True)
         logits = model(X)
         loss = loss_fn(logits, y)
@@ -42,13 +42,13 @@ def train_one_epoch(model, loader, optimizer, loss_fn, device):
     }
 
 @torch.no_grad()
-def evaluate(model, loader, loss_fn, device, num_classes=4):
+def evaluate(model, loader, loss_fn, device, non_blocking: bool = False, num_classes=4):
     model.eval()
     total_loss = ce_sum = dice_sum = 0.0
     meter = EpochConfusionMeter(num_classes=num_classes, device=device)
 
     for X, y in loader:
-        X, y = X.to(device, non_blocking=True), y.to(device, non_blocking=True)
+        X, y = X.to(device, non_blocking=non_blocking), y.to(device, non_blocking=non_blocking)
         logits = model(X)
         total_loss += float(loss_fn(logits, y).item())
         ce_b, dice_b = _ce_and_dice_parts(logits, y)

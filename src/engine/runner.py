@@ -9,10 +9,12 @@ from torch.optim.lr_scheduler import ReduceLROnPlateau
 
 from ..utils.seed import set_seed
 from ..utils.io import make_output_dirs, save_splits, list_case_ids_under, save_final_plots
+from ..utils.device import get_device            # ← use your helper
 from ..data.brats_slice_dataset import build_loaders
 from ..models.unet2d import UNet2D
 from ..losses.combined import CombinedLoss
 from .train import train_one_epoch, evaluate
+
 
 def main(config_path: str):
     # ---- load config ----
@@ -24,7 +26,9 @@ def main(config_path: str):
 
     # ---- seed & device ----
     set_seed(int(cfg.get("seed", 42)))
-    device = cfg.get("device", "cuda" if torch.cuda.is_available() else "cpu")
+    # cfg["device"] can be "auto" | "cuda" | "mps" | "cpu"
+    device = get_device(cfg.get("device", "auto"))
+    print(f"Using device: {device}")
 
     # ---- discover cases & split ----
     modalities = tuple(cfg.get("input_modalities", ["flair", "t1ce"]))
@@ -63,6 +67,8 @@ def main(config_path: str):
         train_ids=train_ids, val_ids=val_ids, test_ids=test_ids,
         batch_size=int(cfg.get("batch_size", 64)),
         num_workers=int(cfg.get("num_workers", 16)),
+        # If your build_loaders supports pin_memory, you can pass:
+        # pin_memory=(device.type == "cuda"),
         **ds_args
     )
     train_ds, val_ds, test_ds, train_loader, val_loader, test_loader = loaders
