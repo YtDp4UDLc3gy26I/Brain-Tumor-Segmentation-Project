@@ -11,39 +11,25 @@ import matplotlib.pyplot as plt
 
 from ..models.unet2d import UNet2D
 from .overlays import _to01, _overlay_on_base, CLASS_COLORS
+from src.utils.device import get_device
 
 def imageLoader(path: str) -> np.ndarray:
     return nib.load(path).get_fdata()
 
 @torch.no_grad()
-def load_model(
-    weights_path: str,
-    model_ctor=UNet2D,
-    in_ch: int = 2,
-    n_classes: int = 4,
-    dropout: float = 0.35,
-    device: str | torch.device = "cuda" if torch.cuda.is_available() else "cpu",
-):
-    model = model_ctor(in_ch=in_ch, n_classes=n_classes, dropout=dropout).to(device)
+def load_model(weights_path: str, in_ch: int, n_classes: int, dropout: float, device_str: str = "auto"):
+    device = get_device(device_str)
+    model = UNet2D(in_ch=in_ch, n_classes=n_classes, dropout=dropout).to(device)
+
     state = torch.load(weights_path, map_location=device)
     if isinstance(state, dict) and "model_state_dict" in state:
-        stg = state.get("settings", {})
-        if "dropout" in stg and abs(stg["dropout"] - dropout) > 1e-8:
-            model = model_ctor(in_ch=in_ch, n_classes=n_classes, dropout=stg["dropout"]).to(device)
         state = state["model_state_dict"]
-
-    if isinstance(state, dict) and any(k.startswith("module.") for k in state.keys()):
+    if any(k.startswith("module.") for k in state.keys()):
         state = OrderedDict((k.replace("module.", ""), v) for k, v in state.items())
 
-    incompatible = model.load_state_dict(state, strict=False)
-    miss = getattr(incompatible, "missing_keys", []) or []
-    unex = getattr(incompatible, "unexpected_keys", []) or []
-    if miss or unex:
-        print("==> load_state_dict report")
-        print("   Missing keys:", miss)
-        print("   Unexpected keys:", unex)
+    model.load_state_dict(state, strict=False)
     model.eval()
-    return model
+    return model, device
 
 @torch.no_grad()
 def predict_volume_stack(
