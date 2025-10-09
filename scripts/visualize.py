@@ -14,8 +14,7 @@ def cli():
     p.add_argument("--start_at", type=int, default=22)
     args = p.parse_args()
 
-    model = load_model(args.weights, in_ch=2, n_classes=4, dropout=0.35,
-                       device="cuda" if torch.cuda.is_available() else "cpu")
+    model = load_model(args.weights, in_ch=2, n_classes=4, dropout=0.35)
     showPredictsById(
         case=args.case, root_dir=args.root, model=model,
         img_size=args.img_size, volume_slices=args.slices, volume_start_at=args.start_at,
