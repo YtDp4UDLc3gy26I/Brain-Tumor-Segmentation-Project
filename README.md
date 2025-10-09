@@ -128,6 +128,3 @@ Please obtain it from the official sources and follow their usage guidelines and
 - Bakas et al., arXiv:1811.02629 (2018)  
 - Bakas et al., TCIA (TCGA-GBM) 2017. DOI: 10.7937/K9/TCIA.2017.KLXWJJ1Q  
 - Bakas et al., TCIA (TCGA-LGG) 2017. DOI: 10.7937/K9/TCIA.2017.GJQ7R0EF
-
-**Example figure** below is a visualization produced locally from the BraTS dataset (for demonstration only).
-No dataset files are redistributed here. Please cite the works above if you use the data.
