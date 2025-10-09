@@ -7,7 +7,7 @@ __pycache__/
 
 # outputs & data
 Output/
-data/
+/data/
 runs/
 logs/
 *.nii
