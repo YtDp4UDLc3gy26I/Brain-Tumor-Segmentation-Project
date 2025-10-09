@@ -31,6 +31,9 @@ The repository is organized to separate configuration, source code, and scripts 
     ├── engine/           # Core training and evaluation loops.
     ├── models/           # Model architectures (e.g., UNet2D).
     ├── utils/            # Utility functions (e.g., device handling).
+    ├── data/             # Data preprocessing and data loader. 
+    ├── losses/           # Calculating losses.
+    ├── metrics/          # Evaluation matrics.
     └── viz/              # Visualization and prediction logic.
 ```
 
