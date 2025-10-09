@@ -151,7 +151,8 @@ def build_loaders(
     roots: list[str],
     train_ids: list[str], val_ids: list[str], test_ids: list[str],
     img_size: int, volume_slices: int, volume_start_at: int, cache_size: int,
-    modalities: tuple[str, ...], batch_size: int, num_workers: int
+    modalities: tuple[str, ...], batch_size: int, num_workers: int,
+    pin_memory: bool = False
 ):
     train_ds = BraTSSliceDataset(roots, train_ids, img_size, volume_slices, volume_start_at,
                                  cache_size, modalities=modalities, augment=True)
