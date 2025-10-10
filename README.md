@@ -141,9 +141,9 @@ The plots below show the change in key metrics over the training epochs.
 
 | Loss vs. Epochs | Dice vs. Epochs |
 | :---: | :---: |
-| ![Loss Plot](path/to/your/loss_plot.png) | ![Dice Plot](path/to/your/dice_plot.png) |
+| ![Loss Plot](./pic/loss_20251008_141943.png) | ![Dice Plot](./pic/dice_no_bg_20251008_141943.png) |
 | **Mean IoU vs. Epochs** | **Accuracy vs. Epochs** |
-| ![Mean IoU Plot](path/to/your/mean_iou_plot.png) | ![Accuracy Plot](path/to/your/accuracy_plot.png) |
+| ![Mean IoU Plot](./pic/mean_iou_20251008_141943.png) | ![Accuracy Plot](./pic/accuracy_20251008_141943.png) |
 
 ### Qualitative Results (Segmentation Examples)
 
