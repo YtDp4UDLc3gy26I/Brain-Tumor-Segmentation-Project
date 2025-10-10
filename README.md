@@ -151,7 +151,7 @@ Visual comparison of the model's predictions against the ground truth labels for
 
 | Input FLAIR | Ground Truth | Model Prediction | Predicted NECROTIC/CORE | Predicted EDEMA | Predicted ENHANCING |
 | :---: | :---: | :---: | :---: | :---: | :---: |
-| ![FLAIR Case 1](/Users/sora/Brain-Tumor-Segmentation-Project/pic/pred_156_z013.png) | ![Ground Truth Case 1](path/to/your/case1_gt.png) | ![Prediction Case 1](path/to/your/case1_pred.png) |
+| ![FLAIR Case 1](./pic/pred_156_z013.png) | ![Ground Truth Case 1](path/to/your/case1_gt.png) | ![Prediction Case 1](path/to/your/case1_pred.png) |
 | *Case: BraTS20_Training_197, Slice: 60* |
 | ![FLAIR Case 2](path/to/your/case2_flair.png) | ![Ground Truth Case 2](path/to/your/case2_gt.png) | ![Prediction Case 2](path/to/your/case2_pred.png) |
 | *Case: BraTS20_Training_ABC, Slice: 75* |
