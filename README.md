@@ -130,10 +130,10 @@ Here is a summary of the final performance metrics on the validation set.
 
 | Metric | Value |
 | :--- | :---: |
-| Validation Loss | 0.1234 |
-| Accuracy | 98.5% |
-| Mean IoU | 0.851 |
-| Dice (no background) | 0.902 |
+| Validation Loss | 0.234 |
+| Validation Accuracy | 99.381% |
+| Validation Mean IoU | 0.729 |
+| Validation Dice (no background) | 0.841 |
 
 ### Training & Validation Curves
 
