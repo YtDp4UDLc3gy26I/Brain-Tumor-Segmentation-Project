@@ -150,25 +150,15 @@ The plots below show the change in key metrics over the training epochs.
 Visual comparison of the model's predictions against the ground truth labels for representative validation cases.
 
 ---
-
 ![Segmentation Result 1](./pic/pred_156_z013.png)
-
 ---
-
 ![Segmentation Result 2](./pic/pred_156_z019.png)
-
 ---
-
 ![Segmentation Result 3](./pic/pred_156_z047.png)
-
 ---
-
 ![Segmentation Result 4](./pic/pred_156_z055.png)
-
 ---
-
 ![Segmentation Result 5](./pic/pred_156_z068.png)
-
 ---
 
 ## Configuration
