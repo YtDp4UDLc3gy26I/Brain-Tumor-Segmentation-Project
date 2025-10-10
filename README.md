@@ -5,14 +5,33 @@ This project provides a complete pipeline for brain tumor segmentation using a 2
   <!-- Replace with an actual image URL if you have one -->
 
 ## Table of Contents
+- [Data Samples](#data-samples)
 - [Project Structure](#project-structure)
 - [Features](#features)
 - [Setup and Installation](#setup-and-installation)
 - [Usage](#usage)
   - [Training](#training)
   - [Visualization](#visualization)
+- [Results](#results)
+  - [Evaluation Metrics](#evaluation-metrics)
+  - [Training & Validation Curves](#training--validation-curves)
+  - [Qualitative Results (Segmentation Examples)](#qualitative-results-segmentation-examples)
 - [Configuration](#configuration)
 - [Dependencies](#dependencies)
+- [Data & Licensing] (#data-licensing)
+
+## Data Samples
+
+The model is trained on multimodal 3D MRI scans from the BraTS 2020 dataset. The primary input modalities used in this project are T1-weighted contrast-enhanced (T1ce) and FLAIR scans. The ground truth labels segment the tumor into three regions: Necrotic and Non-Enhancing Tumor (NCR/NET), Edema, and Enhancing Tumor (ET).
+
+**Example figure** below is a visualization produced locally from the BraTS dataset (for demonstration only).
+No dataset files are redistributed here. Please cite the works if you use the data.
+
+| FLAIR Scan | T1ce Scan | Ground Truth |
+| :---: | :---: | :---: |
+| ![FLAIR Sample](path/to/your/flair_sample.png) | ![T1ce Sample](path/to/your/t1ce_sample.png) | ![Ground Truth Sample](path/to/your/gt_sample.png) |
+
+---
 
 ## Project Structure
 
@@ -83,7 +102,7 @@ To train the model, run the `train.py` script with a specified configuration fil
 ```bash
 PYTHONPATH=. python scripts/train.py -c configs/small.yaml
 ```
-Progress will be printed to the console, and the trained model weights (`best_model.pt` and `last_model.pt`) will be saved in a timestamped folder inside the `Output/` directory.
+Progress will be printed to the console, and the trained model weights (`best_model.pt` and `last_model.pt`) will be saved in a timestamped folder inside the `Output/` directory.  If you want to train with more number of epochs and batch size, try run the above scrpit with `defalut.yaml`.
 
 ### Visualization
 
@@ -93,12 +112,51 @@ To visualize a model's prediction on a single MRI slice, use the `visualize.py` 
 PYTHONPATH=. python scripts/visualize.py \
   --weights Output/Output_YYYYMMDD_HHMMSS/weights/best_model.pt \
   --root ./data/BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData \
-  --case BraTS20_Training_197 \
+  --case BraTS20_Training_XXX \
   --slice 60
 ```
 - Replace `YYYYMMDD_HHMMSS` with the timestamp of your training run.
+- Replace `XXX` with the actual patient ID assigned as test dataset stored as .json file in Output folder.
 - `--case` specifies the patient ID to visualize.
 - `--slice` specifies the axial slice number to display.
+
+## Results
+
+The model was trained for X epochs using the configuration specified in `configs/small.yaml`. The following results were achieved on the validation set.
+
+### Evaluation Metrics
+
+Here is a summary of the final performance metrics on the validation set.
+
+| Metric | Value |
+| :--- | :---: |
+| Validation Loss | 0.1234 |
+| Accuracy | 98.5% |
+| Mean IoU | 0.851 |
+| Dice (no background) | 0.902 |
+
+### Training & Validation Curves
+
+The plots below show the change in key metrics over the training epochs.
+
+| Loss vs. Epochs | Dice vs. Epochs |
+| :---: | :---: |
+| ![Loss Plot](path/to/your/loss_plot.png) | ![Dice Plot](path/to/your/dice_plot.png) |
+| **Mean IoU vs. Epochs** | **Accuracy vs. Epochs** |
+| ![Mean IoU Plot](path/to/your/mean_iou_plot.png) | ![Accuracy Plot](path/to/your/accuracy_plot.png) |
+
+### Qualitative Results (Segmentation Examples)
+
+Visual comparison of the model's predictions against the ground truth labels for representative validation cases.
+
+| Input FLAIR | Ground Truth | Model Prediction | Predicted NECROTIC/CORE | Predicted EDEMA | Predicted ENHANCING |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| ![FLAIR Case 1](/Users/sora/Brain-Tumor-Segmentation-Project/pic/pred_156_z013.png) | ![Ground Truth Case 1](path/to/your/case1_gt.png) | ![Prediction Case 1](path/to/your/case1_pred.png) |
+| *Case: BraTS20_Training_197, Slice: 60* |
+| ![FLAIR Case 2](path/to/your/case2_flair.png) | ![Ground Truth Case 2](path/to/your/case2_gt.png) | ![Prediction Case 2](path/to/your/case2_pred.png) |
+| *Case: BraTS20_Training_ABC, Slice: 75* |
+
+---
 
 ## Configuration
 
