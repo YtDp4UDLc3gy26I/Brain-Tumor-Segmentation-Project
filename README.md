@@ -18,7 +18,7 @@ This project provides a complete pipeline for brain tumor segmentation using a 2
   - [Qualitative Results (Segmentation Examples)](#qualitative-results-segmentation-examples)
 - [Configuration](#configuration)
 - [Dependencies](#dependencies)
-- [Data & Licensing](#data-licensing)
+- [Data & Licensing](#data&licensing)
 
 ## Data Samples
 
