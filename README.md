@@ -149,12 +149,11 @@ The plots below show the change in key metrics over the training epochs.
 
 Visual comparison of the model's predictions against the ground truth labels for representative validation cases.
 
-| Input FLAIR | Ground Truth | Model Prediction | Predicted NECROTIC/CORE | Predicted EDEMA | Predicted ENHANCING |
-| :---: | :---: | :---: | :---: | :---: | :---: |
-| ![FLAIR Case 1](./pic/pred_156_z013.png) | ![Ground Truth Case 1](path/to/your/case1_gt.png) | ![Prediction Case 1](path/to/your/case1_pred.png) |
-| *Case: BraTS20_Training_197, Slice: 60* |
-| ![FLAIR Case 2](path/to/your/case2_flair.png) | ![Ground Truth Case 2](path/to/your/case2_gt.png) | ![Prediction Case 2](path/to/your/case2_pred.png) |
-| *Case: BraTS20_Training_ABC, Slice: 75* |
+![Segmentation Result 1](./pic/pred_156_z013.png)
+![Segmentation Result 2](./pic/pred_156_z019.png)
+![Segmentation Result 3](./pic/pred_156_z047.png)
+![Segmentation Result 4](./pic/pred_156_z055.png)
+![Segmentation Result 5](./pic/pred_156_z068.png)
 
 ---
 
