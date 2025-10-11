@@ -27,7 +27,7 @@ No dataset files are redistributed here. Please cite the works if you use the da
 
 | FLAIR Scan | T1ce Scan | Ground Truth Label | Ground Truth Overlay | 
 | :---: | :---: | :---: | :---: |
-| ![FLAIR Sample](./pic/flair.png) | ![T1ce Sample](./pic/t1ce.png) | ![Ground Truth Label Sample ](./pic/gt_labels.png) | ![Ground Truth Overlay Sample](./pic/gt_overlay.png)
+| <img src="./pic/flair.png" width="200">  | <img src="./pic/t1ce.png" width="200"> | <img src="./pic/gt_labels.png" width="200"> | <img src="./pic/gt_overlay.png" width="200">  |
 
 ---
 
