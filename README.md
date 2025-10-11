@@ -2,8 +2,6 @@
 
 This project provides a complete pipeline for brain tumor segmentation using a 2D U-Net model implemented in PyTorch. It is designed to work with the [BraTS 2020 dataset](https://www.med.upenn.edu/cbica/brats2020/data.html) and includes scripts for training, evaluation, and visualization.
 
-  <!-- Replace with an actual image URL if you have one -->
-
 ## Table of Contents
 - [Data Samples](#data-samples)
 - [Project Structure](#project-structure)
@@ -122,7 +120,7 @@ PYTHONPATH=. python scripts/visualize.py \
 
 ## Results
 
-The model was trained for X epochs using the configuration specified in `configs/small.yaml`. The following results were achieved on the validation set.
+The model was trained for 40 epochs using the configuration specified in `configs/default.yaml`. The following results were achieved on the validation set.
 
 ### Evaluation Metrics
 
