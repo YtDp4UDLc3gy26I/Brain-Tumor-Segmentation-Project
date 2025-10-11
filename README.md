@@ -25,9 +25,9 @@ The model is trained on multimodal 3D MRI scans from the BraTS 2020 dataset. The
 **Example figure** below is a visualization produced locally from the BraTS dataset (for demonstration only).
 No dataset files are redistributed here. Please cite the works if you use the data.
 
-| FLAIR Scan | T1ce Scan | Ground Truth |
-| :---: | :---: | :---: |
-| ![FLAIR Sample](path/to/your/flair_sample.png) | ![T1ce Sample](path/to/your/t1ce_sample.png) | ![Ground Truth Sample](path/to/your/gt_sample.png) |
+| FLAIR Scan | T1ce Scan | Ground Truth Label | Ground Truth Overlay | 
+| :---: | :---: | :---: | :---: |
+| ![FLAIR Sample](./pic/flair.png) | ![T1ce Sample](./pic/t1ce.png) | ![Ground Truth Label Sample ](./pic/gt_labels.png) | ![Ground Truth Overlay Sample](./pic/gt_overlay.png)
 
 ---
 
